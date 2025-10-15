@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div> 
+        <h1> Minhas Tarefas </h1>
+        <h2> Adicionar Nova Tarefa</h2>
+        <form th:action="@{/adicionar}" th:object="${novaTarefa}" method="post">
+            <input 
+
+            type="text" 
+            th:field="*{titulo}" 
+            placeholder="Titulo da Tarefa" 
+            required 
+            
+            />
+
+            <input
+
+            type="text" 
+            th:field="*{descricao}" 
+            placeholder="Descricao da Tarefa" 
+            
+            />
+            <button type="submit">Adicionar</button>
+        </form>
+        <hr />
+        <h2> Tarefas Cadastradas</h2>
+        <table>
+
+        </table>
+
+    </div>
+</body>
+</html>
