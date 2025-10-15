@@ -16,12 +16,12 @@ public class Tarefa {
 
     private String    titulo;
     private String    descricao;
-    private boolean   concluida;
+    private boolean   isConcluida;
     private LocalDate dataCriacao;
 
     public Tarefa(){
         this.dataCriacao  = LocalDate.now();
-        this.concluida    = false;
+        this.isConcluida    = false;
         
     }
 
@@ -50,11 +50,11 @@ public class Tarefa {
     }
 
     public boolean isConcluida() {
-        return concluida;
+        return isConcluida;
     }
 
     public void setConcluida(boolean concluida) {
-        this.concluida = concluida;
+        this.isConcluida = concluida;
     }
 
     public LocalDate getData() {
