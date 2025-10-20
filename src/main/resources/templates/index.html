@@ -31,7 +31,28 @@
         <hr />
         <h2> Tarefas Cadastradas</h2>
         <table>
-
+            <thead> 
+                <tr> 
+                    <th>Título</th> 
+                    <th>Descrição</th> 
+                    <th>Status</th> 
+                    <th>Data</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${paginaTarefas.empty}"> 
+                    <td colspan="4" style="text-align: center">
+                        Nenhuma tarefa cadastrada ainda...
+                    </td>
+                </tr> 
+                <tr th:each="tarefa : ${paginaTarefas.content}">
+                    <td th:text="${tarefa.titulo}">Título da Tarefa</td>
+                    <td th:text="${tarefa.descricao}">Descrição da Tarefa</td>
+                    <td th:text="${tarefa.isConcluida} ? 'Concluída' : 'Pendente' ">
+                        Pendente</td>
+                    <td th:text="${tarefa.dataCriacao}">Data de Criação</td>
+                </tr>
+            </tbody>
         </table>
 
     </div>

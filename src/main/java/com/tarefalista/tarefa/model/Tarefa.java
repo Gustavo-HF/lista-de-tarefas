@@ -57,11 +57,11 @@ public class Tarefa {
         this.isConcluida = concluida;
     }
 
-    public LocalDate getData() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setData(LocalDate data) {
+    public void setDataCriacao(LocalDate data) {
         this.dataCriacao = data;
     }
 
