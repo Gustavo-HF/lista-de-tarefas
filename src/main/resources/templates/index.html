@@ -54,6 +54,13 @@
                 </tr>
             </tbody>
         </table>
+        
+        <div class="pagination">
+            <span>
+                Página <span th:text="${paginaTarefas.number + 1}">1</span> de 
+                <span th:text="${paginaTarefas.totalPages}">1</span>
+            </span>
+        </div>
 
     </div>
 </body>
