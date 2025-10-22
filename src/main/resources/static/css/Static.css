@@ -19,6 +19,7 @@ body {
 h1,h2 {
     color: rgba(37, 77, 221, 0.933);
     padding-bottom: 10px;
+    text-align: center;
     border-bottom: 2px solid #e0e0e0;
     margin-top: 0;
 }
@@ -27,7 +28,6 @@ form{
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
-    align-items: center;
 }
 
 form input [type="text"] {
@@ -38,6 +38,39 @@ form input [type="text"] {
     font-size: 16px;
 }
 
+.concluida {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #555;
+}
+
+.check-icon {
+    color: green;
+    font-size: 1.2em;
+    margin-left: 8px;
+}
+
+.status-green {
+    color: green;
+    font-weight: bold;
+}
+
+.status-red {
+    color: red;
+    font-weight: bold;
+}
+
+.botao-editar {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+
 form button {
     padding: 10px 20px;
     border: none;
@@ -46,7 +79,7 @@ form button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 2px;
-    transition: background-colr 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {

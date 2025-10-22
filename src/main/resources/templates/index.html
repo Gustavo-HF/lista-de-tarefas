@@ -28,6 +28,7 @@
             
             />
             <button type="submit">Adicionar</button>
+
         </form>
         <hr />
         <h2> Tarefas Cadastradas</h2>
@@ -49,9 +50,35 @@
                 <tr th:each="tarefa : ${paginaTarefas.content}">
                     <td th:text="${tarefa.titulo}">Título da Tarefa</td>
                     <td th:text="${tarefa.descricao}">Descrição da Tarefa</td>
-                    <td th:text="${tarefa.isConcluida} ? 'Concluída' : 'Pendente' ">
-                        Pendente</td>
+                    <td th:text="${tarefa.isConcluida} ? 'Concluída' : 'Pendente'"
+                    th:classappend="${tarefa.isConcluida} ? 'status-green' : 'status-red'">
+                        Pendente  
+                    </td>   
                     <td th:text="${tarefa.dataCriacao}">Data de Criação</td>
+                    <td>
+                        <form th:action="@{/excluir}" method="post"> 
+                            <input type="hidden" name="id" th:value="${tarefa.id}"/>
+                            <button type="submit">Remover</button>
+                        </form>
+                    </td>
+                    <td>
+                        <div>
+                            <span th:text="${tarefa.descricao}"
+                            th:classappend="${tarefa.isConcluida} ? 'concluida' : ''"></span>
+
+                            <form th:action="@{/concluir}" method="post" th:if="${!tarefa.isConcluida}">
+                                <input type="hidden" name="id" th:value="${tarefa.id}" />
+                                <input type="checkbox" name="concluir" onchange="this.form.submit()" />
+                            </form>
+
+                            <span th:if="${tarefa.isConcluida}" class="check-icon">✔</span>
+                        </div>
+                    </td>
+                    <td>
+                        <a th:href="@{/editar/{id}(id=${tarefa.id})}" class="botao-editar">
+                            Editar
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -62,7 +89,8 @@
                 <span th:text="${paginaTarefas.totalPages}">1</span>
             </span>
         </div>
-
+        
+           
     </div>
 </body>
 </html>

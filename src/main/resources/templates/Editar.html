@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <link rel="stylesheet" th:href="@{/css/Style.css}">
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    <h2>Editar Tarefa</h2>
+
+    <form th:action="@{/atualizar/{id}}" th:object="${novaTarefa}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <input
+            type="text"
+            th:field="*{titulo}"
+            placeholder="Título da Tarefa"
+            required
+        />
+
+        <input
+            type="text"
+            th:field="*{descricao}"
+            placeholder="Descrição da Tarefa"
+        />
+
+        <button type="submit">Alterar</button>
+    </form>
+</body>
+</html>
